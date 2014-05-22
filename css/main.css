@@ -1,0 +1,258 @@
+html {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #1f1f1f;
+	color: white;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	border: none;
+}
+
+h1 {
+	font-family: cursive;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+	padding-left: 1em;
+	color: #cbcbcb;
+}
+
+button {
+	border: solid black 1px;
+	border-radius: 3px;
+	color: #909090;
+	background-color: #2c2c2c;
+	background-image: linear-gradient(to top, transparent 0%, rgba(255,255,255,0.2) 100%);
+}
+
+button:hover {
+	color: white;
+	background-image: linear-gradient(to top, transparent 0%, rgba(255,255,255,0.3) 100%);
+}
+
+button:active {
+	background-image: unset;
+	box-shadow: 0 0 4px black inset;
+}
+
+.hidden {
+	display: none;
+}
+
+#drape {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.77);
+	z-index: 999;
+}
+
+#main {
+	display: flex;
+	padding: 10px;
+	min-height: calc(100% - 20px);
+	max-height: calc(100% - 20px);
+}
+
+#settings {
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	height: 100%;
+	padding: 12px;
+	opacity: .5;
+	transition: transform 0.5s, box-shadow 0.1s 0.5s;
+}
+
+#settings.viewing {
+	transition: transform 0.5s 0.1s;
+	transform: none;
+	opacity: 1;
+	box-shadow: -10px 0 10px black;
+	background: #3e3e3e;
+}
+
+#schedule {
+	background: #171717;
+	flex: 1.4;
+	padding: 5px;
+}
+
+#today {
+	background-color: #343434;
+	overflow: auto;
+	min-height: calc(100% - 45px);
+	padding: 4px;
+	z-index: 1;
+}
+
+#schedule .task .clock {
+	color: #b7b7b7;
+	line-height: 1em;
+	padding: 0;
+	cursor: move;
+	margin: 0;
+}
+
+#schedule .task > [type="range"] {
+	position: absolute;
+	margin-right: 3px;
+	width: 50%;
+	right: 15px;
+	opacity: 0;
+	transition: opacity .5s 0s;
+}
+
+#schedule .task > [type="range"]:hover {
+	opacity: .4;
+	transition: opacity .5s;
+}
+
+#toolbox {
+	flex: 1;
+	padding: 4px;
+	background: #171717;
+	z-index: 1;
+}
+
+#toolbox .task {
+	width: calc(100% - 20px) !important;
+}
+
+#toolbox .task [type="checkbox"] {
+	display: none;
+}
+
+#controls {
+	margin-bottom: 1em;
+}
+
+#save {
+	position: relative;
+	padding-right: 2px;
+	border-right-color: rgba(0, 0, 0, 0.2);
+	z-index: 2;
+}
+
+#saveas {
+	transform: scaleY(0.9);
+	position: relative;
+	left: -10px;
+	margin-right: -10px;
+	z-index: 1;
+}
+
+#palette {
+}
+
+[dropzone] {
+	min-height: 3em;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 6px;
+	background-color: #151515;
+	box-shadow: 0 0 4px black inset;
+}
+
+.task {
+	display: inline-flex;
+	position: relative;
+	flex: 1;
+	width: calc(100% - 18px);
+	border: solid black 1px;
+	border-radius: 3px;
+
+	padding: 0 4px;
+	margin: 2px 4px;
+	background: #383848;
+	overflow: hidden;
+	box-shadow: 0 0 2px black inset;
+	transition: margin 0.5s, padding 0.5s, height 0.5s, min-height 0.5s,
+		max-height 0.5s, width 0.5s;
+}
+
+.task.dragging:not([data-sticky]) {
+	opacity: 0;
+	padding: 0;
+	margin: 0;
+	border-width: 0;
+	min-height: 0;
+	height: 0;
+	max-height: 0;
+}
+
+.task.dropbefore {
+	margin-top: 1.2em;
+}
+
+.task.dropafter {
+	margin-bottom: 1.2em;
+}
+
+.task .label {
+	flex: 1;
+	margin-left: 5px;
+	padding: 0;
+	height: 1.4em;
+	text-shadow: 0 0 1px black;
+	background: transparent;
+	border: solid transparent 1px;
+	border-radius: 4px;
+	color: inherit;
+	cursor: move;
+}
+
+.task .label:focus {
+	box-shadow: 0 0 4px #0080ff;
+	cursor: text;
+}
+
+.task [type="range"] {
+	max-width: 30%;
+	margin: 0;
+	margin-right: 15px;
+}
+
+.task .sticker {
+	margin: 0 15px 0 -15px;
+	border-radius: 10px;
+	transform: scale(.85);
+}
+
+.task .sticker[data-sticky] {
+	background-image: unset;
+	background-color: #1f1f1f;
+	box-shadow: 0 0 4px black inset;
+}
+
+.task .close {
+	position: absolute;
+	margin: 0;
+	right: 0;
+	top: -1px;
+	padding: 0 2px;
+	border-radius: 20px;
+	opacity: .2;
+	transform: scale(.7);
+	transition: opacity .4s .2s;
+}
+
+.task:hover .close {
+	opacity: 1;
+}
+
+.task [type="checkbox"] {
+	display: none;
+}
+
+[dropzone]:not([id="sticky-palette"]) .task .sticker {
+	display: none;
+	margin: 0;
+}

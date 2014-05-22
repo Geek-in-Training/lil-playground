@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>TimeWise</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="drape" class="hidden" onclick="ui.toggleView()"></div>
+	<div id="main">
+		<div id="schedule">
+			<h1>Today:</h1>
+			<div id="today" dropzone="move">
+
+			</div>
+		</div>
+		<div id="toolbox">
+			<div id="controls">
+				<button id="newItem">New Item</button>
+				<button id="save" onclick="tm.save()">Save</button>
+				<button id="saveas" onclick="tm.save('backup')">as</button>
+				<button id="load" onclick="tm.load('backup')">Load</button>
+				<button id="openSettings">Settings</button>
+			</div>
+			<h1>High-Priority and Reaccuring Tasks:</h1>
+			<div id="sticky-palette" dropzone="move"></div>
+			<h1>One-Time Tasks:</h1>
+			<div id="palette" dropzone="move"></div>
+		</div>
+	</div>
+	<div id="settings">
+		<button id="export">Export</button>
+		<button id="import">Import</button> <br /> <br />
+		Start Hour: <input id="startHour" type="number"/>
+	</div>
+	<script src="js/cssManager.js"></script>
+	<script src="js/dragManager.js"></script>
+	<script src="js/settings.js"></script>
+	<script src="js/events.js"></script>
+	<script src="js/ui.js"></script>
+	<script src="js/taskManager.js"></script>
+	<script src="js/clockwork.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
