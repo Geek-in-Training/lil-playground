@@ -221,7 +221,8 @@ button:active {
 }
 
 .task .sticker {
-	margin: 0 15px 0 -15px;
+	display: none;
+	margin: 0;
 	border-radius: 10px;
 	transform: scale(.85);
 }
@@ -252,7 +253,7 @@ button:active {
 	display: none;
 }
 
-[dropzone]:not([id="sticky-palette"]) .task .sticker {
-	display: none;
-	margin: 0;
+[dropzone]:not([id="today"]) .task .sticker {
+	display: inline-block;
+	margin: 0 15px 0 -15px;
 }
