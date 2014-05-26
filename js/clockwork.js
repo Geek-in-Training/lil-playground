@@ -70,7 +70,8 @@ var clockwork = function () {
 							new Notification(timeRemaining + " Minutes left for " + $(".label", task).value, {
 								body: "Up Next: " + $(".label", task.nextSibling).value
 							});
-						break;
+							sound.play(timeRemaining + "min");
+							break;
 					}
 				}
 				lastMinute = minute;

@@ -70,5 +70,10 @@ var todayHeight = ui.today.getBoundingClientRect().height;
 ui.today.style.maxHeight = todayHeight + "px";
 tm.load();
 
+sound.load("audio/1.ogg", "1min");
+sound.load("audio/5.ogg", "5min");
+sound.load("audio/15.ogg", "15min");
+sound.load("audio/30.ogg", "30min");
+
 clockwork.update();
 setInterval(clockwork.update, 1000);
